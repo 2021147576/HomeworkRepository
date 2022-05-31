@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    
+    <div id="userInfo"></div>
+    <script>
+        window.onload = function () {
+        const config = {
+            method: "get"
+        };
+        fetch("product.json", config)
+            .then(response => response.json())
+            .then(data => {
+            let name = document.createElement("div");
+            const email = document.createElement("div");
+            const phone = document.createElement("div");
+            name.textContent = data.name;
+            email.textContent = data.email;
+            phone.textContent = data.phone;
+            const userInfo = document.getElementById("userInfo");
+            userInfo.appendChild(name);
+            userInfo.appendChild(email);
+            userInfo.appendChild(phone);
+            })
+            .catch(error => console.log("fetch 에러!"));
+        }
+        
+    </script>
+  </body>
+</html>
