@@ -54,24 +54,7 @@
                             place.appendChild(x);
                     }})
                     }
-            function description(){
-                let y = document.getElementById("description");
-                if( !y ){
-                }
-                else{
-                    y.parentNode.removeChild(y);
-                }
-                let clicked = event.Target;
-                let top_val = clicked.offsetTop;
-                let left_val = clicked.offsetLeft;
-                let x = document.createElement("div");
-                x.id = "description"
-                x.offsetTop = top_val;
-                x.offsetLeft = left_val;
-                x.innerText = (clicked.id + "만 원")
-
-                document.getElementById("shop_area").appendChild(x)
-            }
+            
 
             
         
