@@ -1,0 +1,66 @@
+h1{
+    font-family :'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size : 30pt;
+    text-align: center;
+}
+
+button{
+    text-align : center;
+    background-color : darkcyan;
+    color : white;
+    margin : auto;
+    height : 100%;
+}
+#test{
+    z-index : +2;
+}
+div{
+    text-align : center;
+    border : solid;
+    width : 100%;
+    padding : 3px;
+    margin : auto;
+}   
+
+form{
+    text-align : center;
+    line-height : 40px;
+}
+
+label{
+    display : block;
+}
+
+img {
+    width : 100px;
+    height : 160px;
+    float : left;
+    position : absolute;
+}
+body, nav{
+    width : 1000px;
+    margin : auto;
+}
+
+
+nav{
+    border-style : solid;
+    padding-top : 10px;
+    padding-bottom : 10px;
+    display : flex;
+    flex-direction : row;
+    flex-wrap : nowrap;
+    justify-content : flex-start;
+}
+
+#index_main h1{
+    animation-duration : 2s;
+    animation-name : move;
+    animation-timing-function : linear;
+}
+
+#index_main div{
+    margin : 0px;
+    float : left;
+}
+

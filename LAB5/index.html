@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" type = text/css href = "main.css">
+        
+    </head>
+
+    <body id = index_main>
+        <h1>welcome to internet programming </h1>
+        <nav>
+            <button onclick = test(1,1)></button>
+            <button class = nav type = button onClick = "location.href='login.html'">로그인</button>
+            <button class = nav type = button onClick = "location.href='signup.html'">회원가입</button>
+        </nav>
+        
+        <div id = search_area>
+            <form>
+            <input type = "text" placeholder = "검색" id = searcher>
+            <select id = category name = food >
+                <option selected = true value = all>All</option>
+                <option value = fantasy>판타지</option>
+                <option value = romance>로맨스</option>
+                <option value = animation>애니메이션</option>
+            </select>
+            </form>
+        </div>
+        <div id = shop_area>
+
+        </div>
+
+
+        <script>
+            document.getElementsByTagName("img").onclick = description();
+            window.onload = function (){
+                fetch("product.json", 
+                {
+                    method : "get"
+                }
+                )
+                    .then(response=>response.json())
+                    .then(data => {
+                        for(let i =0; i<3; i++  ){
+                            let x = document.createElement("img");
+                            let place = document.getElementById("shop_area")
+                            x.src = data.fantasy[i].file_name;
+                            x.id = data.fantasy[i].name;
+                            place.appendChild(x);
+                            x.src = data.romance[i].file_name;
+                            x.id = data.romance[i].name;
+                            place.appendChild(x);
+                            x.src = data.animation[i].file_name;
+                            x.id = data.animation[i].name;
+                            place.appendChild(x);
+                    }})
+                    }
+            function description(){
+                let y = document.getElementById("description");
+                if( !y ){
+                }
+                else{
+                    y.parentNode.removeChild(y);
+                }
+                let clicked = event.currentTarget;
+                let top_val = clicked.offsetTop;
+                let left_val = clicked.offsetLeft;
+                let x = document.createElement("div");
+                x.id = "description"
+                x.offsetTop = top_val;
+                x.offsetLeft = left_val;
+                x.innerText = (clicked.id + "만 원")
+
+                document.getElementById("shop_area").appendChild(x)
+            }
+
+            function filter(){
+                let parent = document.getElementById("search_area");
+                while(parent.hasChildNodes()){
+                    parent.removeChild(parent.firstChild);
+                }
+
+                let category = document.getElementById("category").value;
+                let name = document.getElementById("searcher").value;
+                fetch("product.json", 
+                {
+                    method : "get"
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(category == "romance"){
+                        for(let k = 0; k<3; k++){
+                            if(data.romance[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.romance[i].file_name;
+                                x.id = data.romance[i].name;
+                                place.appendChild(x);
+                            }
+                    }}
+                    else if(category == "animation"){
+                        for(let k = 0; k<3; k++){
+                            if(data.animation[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.animation[i].file_name;
+                                x.id = data.animation[i].name;
+                                place.appendChild(x);
+                            }
+                    }
+                    }
+                    else if(category == "fantasy"){
+                        for(let k = 0; k<3; k++){
+                            if(data.fantasy[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.fantasy[i].file_name;
+                                x.id = data.fantasy[i].name;
+                                place.appendChild(x);
+                            }
+                    }
+                    }
+                    else{
+                        for(let k = 0; k<3; k++){
+                            if(data.romance[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.romance[i].file_name;
+                                x.id = data.romance[i].name;
+                                place.appendChild(x);
+                            }
+                            if(data.animation[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.animation[i].file_name;
+                                x.id = data.animation[i].name;
+                                place.appendChild(x);
+                            }
+                            if(data.fantasy[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.fantasy[i].file_name;
+                                x.id = data.fantasy[i].name;
+                                place.appendChild(x);
+                            }
+
+                    }
+                    }
+
+                })
+
+            }
+        
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+{
+    "fantasy" : [
+        {
+            "name" : "Harry Potter",
+            "price" : "1만원",
+            "file_name" : "harry_potter.jpeg"
+        },
+        {
+            "name" : "Lord of Rings",
+            "price" : "1만원",
+            "file_name" : "lord_rings.jpeg"
+        },
+        {
+            "name" : "Stranger Things",
+            "price" : "1만원",
+            "file_name" : "stranger_things.jpeg"
+        }
+    ],
+    "romance" : [
+        {
+            "name" : "Titanic",
+            "price" : "1만원",
+            "file_name" : "titanic.jpeg"
+        },
+        {
+            "name" : "About Time",
+            "price" : "1만원",
+            "file_name" : "about_time.jpeg"
+        },
+        {
+            "name" : "Romio and Juliet",
+            "price" : "1만원",
+            "file_name" : "romio_and_juliet.jpeg"
+        }
+
+    ],
+    "animation" : [
+        {
+            "name" : "Toy Story",
+            "price" : "1만원",
+            "file_name" : "toy_story.jpeg"
+        },
+        {
+            "name" : "Shewreck",
+            "price" : "1만원",
+            "file_name" : "shewreck.jpeg"
+        },
+        {
+            "name" : "Moving Castle",
+            "price" : "1만원",
+            "file_name" : "moving_castle.jpeg"
+        }
+    ]
+}
