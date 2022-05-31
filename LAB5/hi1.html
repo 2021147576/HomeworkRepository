@@ -14,17 +14,13 @@
             let name = document.createElement("div");
             const email = document.createElement("div");
             const phone = document.createElement("div");
-            name.textContent = data.name;
-            email.textContent = data.email;
-            phone.textContent = data.phone;
+            name.textContent = data.fantasy[0].name;
             const userInfo = document.getElementById("userInfo");
             userInfo.appendChild(name);
-            userInfo.appendChild(email);
-            userInfo.appendChild(phone);
             })
             .catch(error => console.log("fetch 에러!"));
         }
         
     </script>
   </body>
-</html>
+</html> 
