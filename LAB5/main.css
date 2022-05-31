@@ -34,7 +34,6 @@ label{
 img {
     width : 100px;
     height : 160px;
-    float : left;
     position : absolute;
 }
 body, nav{
