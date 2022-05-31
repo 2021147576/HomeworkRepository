@@ -23,7 +23,7 @@
                 <option value = animation>애니메이션</option>
             </select>
             </form>
-            <button type = button onclick = filter()>검색</button>
+            <button type = button id = filter>검색</button>
         </div>
         <div id = shop_area>
 
@@ -31,6 +31,7 @@
 
 
         <script>
+            document.getElementsByTagName("img").onclick = description();
             window.onload = function (){
                 fetch("product.json", 
                 {
@@ -53,9 +54,101 @@
                             place.appendChild(x);
                     }})
                     }
-            
+            $("#search_area img").clicked(function(){
+                let y = document.getElementById("description");
+                if( !y ){
+                }
+                else{
+                    y.parentNode.removeChild(y);
+                }
+                let clicked = event.Target;
+                let top_val = clicked.offsetTop;
+                let left_val = clicked.offsetLeft;
+                let x = document.createElement("div");
+                x.id = "description"
+                x.offsetTop = top_val;
+                x.offsetLeft = left_val;
+                x.innerText = (clicked.id + "만 원")
 
-            
+                document.getElementById("shop_area").appendChild(x)
+            })
+
+            $("#filter").clicked(function(){
+                let parent = document.getElementById("search_area");
+                while(parent.hasChildNodes()){
+                    parent.removeChild(parent.firstChild);
+                }
+
+                let category = document.getElementById("category").value;
+                let name = document.getElementById("searcher").value;
+                fetch("product.json", 
+                {
+                    method : "get"
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(category == "romance"){
+                        for(let k = 0; k<3; k++){
+                            if(data.romance[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.romance[i].file_name;
+                                x.id = data.romance[i].name;
+                                place.appendChild(x);
+                            }
+                    }}
+                    else if(category == "animation"){
+                        for(let k = 0; k<3; k++){
+                            if(data.animation[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.animation[i].file_name;
+                                x.id = data.animation[i].name;
+                                place.appendChild(x);
+                            }
+                    }
+                    }
+                    else if(category == "fantasy"){
+                        for(let k = 0; k<3; k++){
+                            if(data.fantasy[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.fantasy[i].file_name;
+                                x.id = data.fantasy[i].name;
+                                place.appendChild(x);
+                            }
+                    }
+                    }
+                    else{
+                        for(let k = 0; k<3; k++){
+                            if(data.romance[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.romance[i].file_name;
+                                x.id = data.romance[i].name;
+                                place.appendChild(x);
+                            }
+                            if(data.animation[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.animation[i].file_name;
+                                x.id = data.animation[i].name;
+                                place.appendChild(x);
+                            }
+                            if(data.fantasy[i].name.includes(name)){
+                                let x = document.createElement("img");
+                                let place = document.getElementById("shop_area");
+                                x.src = data.fantasy[i].file_name;
+                                x.id = data.fantasy[i].name;
+                                place.appendChild(x);
+                            }
+
+                    }
+                    }
+
+                })
+
+            })
         
             
         </script>
